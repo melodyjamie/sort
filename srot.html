@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //冒泡排序方法一：
+    /*let arr=[20,6,42,12,35,62,8,75,5]
+    function fn(arr){
+        for(var i=0;i<arr.length;i++){
+            for(var j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    var tmp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=tmp;
+                }
+            }
+        }
+        console.log(arr)
+    }
+    fn(arr)*/
+
+    //排序2
+    /*let arr=[20,6,42,12,35,62,8,75,5]
+    let reult=arr.sort((a,b)=>{
+        return a-b
+    })
+    console.log(reult)*/
+
+
+/*    //选择排序3
+   let arr=[20,6,42,12,35,62,8,75,5]
+   function sortC(arr){
+    var minIndex;
+    for(var i=0;i<arr.length-1;i++){
+        minIndex=i;
+        for(var j=i+1;j<arr.length;j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex=j
+
+            }
+        }
+        var temp=arr[i];
+         arr[i]=arr[minIndex];
+         arr[minIndex]=temp
+    }
+    return arr
+}
+console.log(sortC(arr));*/
+
+//插入排序4
+/*    let arr=[20,6,42,12,35,62,8,75,5]
+    function sortD(arr){
+      var aa;
+      var newarr=[];
+      for(var i=1;i<arr.length;i++){
+          aa=i-1;
+          newarr=arr[i]
+          while(aa>=0 && arr[aa]>newarr){
+          arr[aa+1]=arr[aa]
+              aa--
+          }
+         arr[aa+1]=newarr;
+      }
+      return arr
+    }
+    console.log(sortD(arr))*/
+
+/*    let arr=[20,6,42,12,35,62,8,75,5]
+         左边   20  右边
+     6，12,8,5        42,35,62，75*/
+/*    function sort(arr){
+        let max=arr[0];
+        let left="";
+        let right="";
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]>max){
+                left=arr[i]
+            }else {
+                right=arr[i]
+            }
+        }
+    }
+    sort(arr)*/
+//计算排列5
+    let arr=[20,6,42,12,35,62,8,75,5]
+     let ruelt=countingSort(arr,75)
+    console.log(ruelt)
+    function countingSort(arr, maxValue) {
+        var bucket = new Array(maxValue+1),
+            sortedIndex = 0;
+        arrLen = arr.length,
+            bucketLen = maxValue + 1;
+
+        for (var i = 0; i < arrLen; i++) {
+            if (!bucket[arr[i]]) {
+                bucket[arr[i]] = 0;
+            }
+            bucket[arr[i]]++;
+        }
+
+        for (var j = 0; j < bucketLen; j++) {
+            while(bucket[j] > 0) {
+                arr[sortedIndex++] = j;
+                bucket[j]--;
+            }
+        }
+        return arr;
+    }
+
+</script>
+</body>
+</html>
